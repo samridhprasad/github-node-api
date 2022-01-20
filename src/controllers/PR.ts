@@ -5,7 +5,7 @@ import {
   GetAllPullRequestsModel,
   GetSinglePullRequestModel,
 } from "../model/PR";
-import { invalidPRObject, invalidRepoObject } from "../utils/errors";
+import { invalidPRObject, invalidRepoAndPRObject, invalidRepoObject } from "../utils/errors";
 
 export const GetAllPullRequests = async (
   req: Express.Request,
@@ -15,7 +15,8 @@ export const GetAllPullRequests = async (
     const query = GetAllPullRequestsModel.query.validate(req.query);
 
     if (query.error) {
-      res.json({ invalidRepoObject });
+      res.status(404).send(invalidRepoObject);
+      // res.json({ invalidRepoObject });
       return;
     }
 
@@ -27,7 +28,8 @@ export const GetAllPullRequests = async (
 
     res.json(pullRequests);
   } catch (err) {
-    res.json({ error: err });
+    res.status(404).send(invalidRepoObject);
+    // res.json({ error: err });
   }
 };
 
@@ -40,12 +42,14 @@ export const GetPullRequest = async (
     const params = GetSinglePullRequestModel.params.validate(req.params);
 
     if (query.error) {
-      res.json({ invalidRepoObject });
+      res.status(404).send(invalidRepoObject);
+      // res.json({ invalidRepoObject });
       return;
     }
 
     if (params.error) {
-      res.json({ invalidPRObject });
+      // res.json({ invalidPRObject });
+      res.status(404).send(invalidPRObject); 
       return;
     }
 
@@ -57,6 +61,6 @@ export const GetPullRequest = async (
     let responseObject = Object.assign(commitsObject, pullRequest);
     res.json(responseObject);
   } catch (err) {
-    res.json({ error: err });
+    res.status(404).send(invalidPRObject);
   }
 };

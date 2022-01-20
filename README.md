@@ -40,4 +40,4 @@ GET localhost:8080/pulls/23144?repo=facebook/react
     * Just repo: `owner/repo`
 
 ## Postman Testing
-I've exported a simple postman collection of requests I used to debug. Simply add your Github PAT to line 112 'value' field of api.postman_collection.json
+I've exported a simple postman collection of requests I used to debug. Simply add your Github PAT to line 136 'value' field of github-api.postman_collection.json

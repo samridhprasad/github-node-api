@@ -22,17 +22,5 @@ x-ratelimit-reset: 1642277770
 x-ratelimit-used: 7
 ```
 -----
-## Gettings Pull Requests
-GET /repos/{owner}/{repo}/pulls
-https://api.github.com/repos/facebook/react/pulls
-
-We care about `"state": "open",`
-
-// TODO: Need to handle not found:
-```
-"message": "Not Found",
-```
------
-## Getting commits for an open PR
-GET /repos/{owner}/{repo}/pulls/{pull}/commits
-https://api.github.com/repos/facebook/react/pulls/23057/commits
+## Conclusion
+Need auth token to make meaningful interactions with github's api. 

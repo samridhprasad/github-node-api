@@ -54,6 +54,30 @@
 			"response": []
 		},
 		{
+			"name": "open PRs for invalid owner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pulls?repo=blablabook/react",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pulls"
+					],
+					"query": [
+						{
+							"key": "repo",
+							"value": "blablabook/react"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "total commits under an open PR",
 			"request": {
 				"method": "GET",
@@ -84,14 +108,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/pulls/23149?repo=facebook/react",
+					"raw": "localhost:8080/pulls/23199?repo=facebook/react",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"pulls",
-						"23149"
+						"23199"
 					],
 					"query": [
 						{
